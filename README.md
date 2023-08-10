@@ -1,6 +1,6 @@
 ### 0x00.AirBnB Clone - The Console
 
-## Functionalities of this command interpreter:
+## What command interpreter does
 
 - Create a new object (ex: a new User or a new Place)
 - Retrieve an object from a file, a database etc...
