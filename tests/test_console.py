@@ -1352,9 +1352,10 @@ class TestHBNBCommand_update(unittest.TestCase):
         self.assertEqual("attr_value", test_dict["attr_name"])
 
         
+    
     def test_update_valid_dictionary_with_int_dot_notation(self):
-	with patch("sys.stdout", new=StringIO()) as output:
-	    HBNBCommand().onecmd("create Place")
+        with patch("sys.stdout", new=StringIO()) as output:
+            HBNBCommand().onecmd("create Place")
             testId = output.getvalue().strip()
         testCmd = "Place.update({}, ".format(testId)
         testCmd += "{'max_guest': 98})"
@@ -1409,7 +1410,8 @@ class TestHBNBCommand_count(unittest.TestCase):
             self.assertEqual("1", output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create Place"))
-
+        
 
 if __name__ == "__main__":
     unittest.main()
+
