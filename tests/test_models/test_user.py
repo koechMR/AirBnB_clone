@@ -7,6 +7,7 @@ from models.User import User
 from datetime import datetime
 from time import sleep
 
+
 class TestUser_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the User class"""
 
@@ -24,7 +25,7 @@ class TestUser_instantiation(unittest.TestCase):
 
     def test_updated_at_is_public_datetime(self):
         self.assertEqual(datetime, type(User().updated_at))
-    
+
     def test_password_is_public_str(self):
         self.assertEqual(str, type(User.password))
 
@@ -120,7 +121,7 @@ class TestUser_save(unittest.TestCase):
         Usid = "User." + Us.id
         with open("file.json", "r") as x:
             self.assertIn(Usid, x.read())
-    
+
     def test_two_saves(self):
         Us = User()
         sleep(0.05)
@@ -131,6 +132,7 @@ class TestUser_save(unittest.TestCase):
         sleep(0.05)
         Us.save()
         self.assertLess(second_updated_at, Us.updated_at)
+
 
 class TestUser_to_dict(unittest.TestCase):
     """Unittests for testing to_dict User class"""
@@ -180,6 +182,7 @@ class TestUser_to_dict(unittest.TestCase):
         Us = User()
         with self.assertRaises(TypeError):
             Us.to_dict(None)
+
 
 if __name__ == "__main__":
     unittest.main()

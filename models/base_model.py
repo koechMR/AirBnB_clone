@@ -28,7 +28,6 @@ class BaseModel:
         else:
             models.storage.new(self)
 
-
     def to_dict(self):
         """Return dictionary of the BaseModel instance """
         readict = self.__dict__.copy()
@@ -36,7 +35,7 @@ class BaseModel:
         readict["updated_at"] = self.updated_at.isoformat()
         readict["__class__"] = self.__class__.__name__
         return readict
-    
+
     def save(self):
         """Update updated_at with the current datetime"""
         self.updated_at = datetime.today()

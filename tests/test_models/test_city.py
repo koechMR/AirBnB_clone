@@ -13,6 +13,7 @@ from time import sleep
 from models.City import City
 from datetime import datetime
 
+
 class TestCity_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the City class."""
 
@@ -36,7 +37,7 @@ class TestCity_instantiation(unittest.TestCase):
         self.assertEqual(str, type(City.name))
         self.assertIn("name", dir(Cy))
         self.assertNotIn("name", Cy.__dict__)
-    
+
     def test_state_id_is_public_class_attribute(self):
         Cy = City()
         self.assertEqual(str, type(City.state_id))
@@ -139,6 +140,7 @@ class TestCity_save(unittest.TestCase):
         with self.assertRaises(TypeError):
             Cy.save(None)
 
+
 class TestCity_to_dict(unittest.TestCase):
     """Unittests for testing to_dict method of the City class."""
 
@@ -187,6 +189,7 @@ class TestCity_to_dict(unittest.TestCase):
     def test_contrast_to_dict_dunder_dict(self):
         Cy = City()
         self.assertNotEqual(Cy.to_dict(), Cy.__dict__)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -122,7 +122,7 @@ class TestBaseModel_save(unittest.TestCase):
         Bm = BaseModel()
         with self.assertRaises(TypeError):
             Bm.save(None)
-    
+
     def test_one_save(self):
         Bm = BaseModel()
         sleep(0.05)

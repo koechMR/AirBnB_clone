@@ -8,6 +8,7 @@ from datetime import datetime
 from models.Amenity import Amenity
 from time import sleep
 
+
 class TestAmenity_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Amenity class"""
     def test_new_instance_stored_in_objects(self):
@@ -64,7 +65,7 @@ class TestAmenity_instantiation(unittest.TestCase):
     def test_instantiation_with_None_kwargs(self):
         with self.assertRaises(TypeError):
             Amenity(id=None, created_at=None, updated_at=None)
-    
+
     def test_str_representation(self):
         Dt = datetime.today()
         Dt_repr = repr(Dt)
@@ -76,6 +77,7 @@ class TestAmenity_instantiation(unittest.TestCase):
         self.assertIn("'id': '123456'", Amstr)
         self.assertIn("'created_at': " + Dt_repr, Amstr)
         self.assertIn("'updated_at': " + Dt_repr, Amstr)
+
 
 class TestAmenity_save(unittest.TestCase):
     """Unittests for testing save method of the Amenity class."""
@@ -114,7 +116,7 @@ class TestAmenity_save(unittest.TestCase):
         Amid = "Amenity." + Am.id
         with open("file.json", "r") as f:
             self.assertIn(Amid, f.read())
-    
+
     def test_two_saves(self):
         Am = Amenity()
         sleep(0.05)
@@ -145,7 +147,7 @@ class TestAmenity_to_dict(unittest.TestCase):
         self.assertEqual(str, type(Am_dict["id"]))
         self.assertEqual(str, type(Am_dict["created_at"]))
         self.assertEqual(str, type(Am_dict["updated_at"]))
-    
+
     def test_to_dict_contains_correct_keys(self):
         Am = Amenity()
         self.assertIn("id", Am.to_dict())
@@ -174,6 +176,7 @@ class TestAmenity_to_dict(unittest.TestCase):
         Am = Amenity()
         with self.assertRaises(TypeError):
             Am.to_dict(None)
+
 
 if __name__ == "__main__":
     unittest.main()

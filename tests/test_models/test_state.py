@@ -8,6 +8,7 @@ from time import sleep
 from models.State import State
 from datetime import datetime
 
+
 class TestState_instantiation(unittest.TestCase):
     """Unittests for testing """
 
@@ -128,12 +129,13 @@ class TestState_save(unittest.TestCase):
         with open("file.json", "r") as f:
             self.assertIn(Stid, f.read())
 
+
 class TestState_to_dict(unittest.TestCase):
     """Unittests for testing to_dict method """
 
     def test_to_dict_type(self):
         self.assertTrue(dict, type(State().to_dict()))
-    
+
     def test_to_dict_contains_added_attributes(self):
         St = State()
         St.middle_name = "Holberton"
@@ -176,6 +178,7 @@ class TestState_to_dict(unittest.TestCase):
         St = State()
         with self.assertRaises(TypeError):
             St.to_dict(None)
+
 
 if __name__ == "__main__":
     unittest.main()

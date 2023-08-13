@@ -8,6 +8,7 @@ from time import sleep
 from models.Review import Review
 from datetime import datetime
 
+
 class TestReview_instantiation(unittest.TestCase):
     """Unittests for testing Review class"""
 
@@ -44,7 +45,6 @@ class TestReview_instantiation(unittest.TestCase):
         self.assertIn("user_id", dir(Rv))
         self.assertNotIn("user_id", Rv.__dict__)
 
-
     def test_two_reviews_different_created_at(self):
         Rv1 = Review()
         sleep(0.05)
@@ -55,7 +55,7 @@ class TestReview_instantiation(unittest.TestCase):
         Rv1 = Review()
         Rv2 = Review()
         self.assertNotEqual(Rv1.id, Rv2.id)
-    
+
     def test_instantiation_with_kwargs(self):
         Dt = datetime.today()
         Dt_iso = Dt.isoformat()
@@ -89,6 +89,7 @@ class TestReview_instantiation(unittest.TestCase):
     def test_instantiation_with_None_kwargs(self):
         with self.assertRaises(TypeError):
             Review(id=None, created_at=None, updated_at=None)
+
 
 class TestReview_save(unittest.TestCase):
     """Unittests for testing Review class."""
@@ -140,6 +141,7 @@ class TestReview_save(unittest.TestCase):
         with self.assertRaises(TypeError):
             Rv.save(None)
 
+
 class TestReview_to_dict(unittest.TestCase):
     """Unittests for testing to_dict method of Review class"""
 
@@ -179,7 +181,7 @@ class TestReview_to_dict(unittest.TestCase):
         self.assertEqual(str, type(Rv_dict["id"]))
         self.assertEqual(str, type(Rv_dict["created_at"]))
         self.assertEqual(str, type(Rv_dict["updated_at"]))
-  
+
     def test_contrast_to_dict_dunder_dict(self):
         Rv = Review()
         self.assertNotEqual(Rv.to_dict(), Rv.__dict__)
@@ -188,6 +190,7 @@ class TestReview_to_dict(unittest.TestCase):
         Rv = Review()
         with self.assertRaises(TypeError):
             Rv.to_dict(None)
+
 
 if __name__ == "__main__":
     unittest.main()

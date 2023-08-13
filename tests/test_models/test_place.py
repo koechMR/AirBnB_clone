@@ -61,6 +61,7 @@ class TestPlace_instantiation(unittest.TestCase):
         self.assertEqual(float, type(Place.longitude))
         self.assertIn("longitude", dir(Pl))
         self.assertNotIn("longitude", Pl.__dict__)
+
     def test_number_bathrooms_is_public_class_attribute(self):
         Pl = Place()
         self.assertEqual(int, type(Place.number_bathrooms))
@@ -72,7 +73,7 @@ class TestPlace_instantiation(unittest.TestCase):
         self.assertEqual(int, type(Place.max_guest))
         self.assertIn("max_guest", dir(Pl))
         self.assertNotIn("max_guest", Pl.__dict__)
-    
+
     def test_user_id_is_public_class_attribute(self):
         Pl = Place()
         self.assertEqual(str, type(Place.user_id))
@@ -108,7 +109,6 @@ class TestPlace_instantiation(unittest.TestCase):
         Pl2 = Place()
         self.assertNotEqual(Pl1.id, Pl2.id)
 
-    
     def test_two_Places_different_updated_at(self):
         Pl1 = Place()
         sleep(0.05)
@@ -194,6 +194,7 @@ class TestPlace_save(unittest.TestCase):
         with open("file.json", "r") as x:
             self.assertIn(Plid, x.read())
 
+
 class TestPlace_to_dict(unittest.TestCase):
     """Unittests for testing to_dict method of the Place class"""
 
@@ -242,6 +243,7 @@ class TestPlace_to_dict(unittest.TestCase):
     def test_contrast_to_dict_dunder_dict(self):
         Pl = Place()
         self.assertNotEqual(Pl.to_dict(), Pl.__dict__)
+
 
 if __name__ == "__main__":
     unittest.main()

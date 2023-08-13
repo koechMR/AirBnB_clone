@@ -1351,8 +1351,6 @@ class TestHBNBCommand_update(unittest.TestCase):
         test_dict = storage.all()["User.{}".format(testId)].__dict__
         self.assertEqual("attr_value", test_dict["attr_name"])
 
-        
-    
     def test_update_valid_dictionary_with_int_dot_notation(self):
         with patch("sys.stdout", new=StringIO()) as output:
             HBNBCommand().onecmd("create Place")
@@ -1392,7 +1390,7 @@ class TestHBNBCommand_count(unittest.TestCase):
             self.assertEqual("0", output.getvalue().strip())
 
     def test_count_object(self):
-        
+
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create User"))
         with patch("sys.stdout", new=StringIO()) as output:
@@ -1410,8 +1408,7 @@ class TestHBNBCommand_count(unittest.TestCase):
             self.assertEqual("1", output.getvalue().strip())
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("create Place"))
-        
+
 
 if __name__ == "__main__":
     unittest.main()
-

@@ -34,7 +34,7 @@ class TestFileStorage_instantiation(unittest.TestCase):
     def testFileStorage_objects_is_private_dict(self):
         self.assertEqual(dict, type(FileStorage._FileStorage__objects))
 
-    
+
 class TestFileStorage_methods(unittest.TestCase):
     """Unittests for methods of the FileStorage class"""
     def test_all_with_arg(self):
@@ -73,7 +73,7 @@ class TestFileStorage_methods(unittest.TestCase):
         St = State()
         models.storage.new(Pl)
         models.storage.new(Cy)
-        models.storage.new(Bm) 
+        models.storage.new(Bm)
         models.storage.new(St)
         models.storage.new(Am)
         models.storage.new(Rv)
@@ -92,7 +92,6 @@ class TestFileStorage_methods(unittest.TestCase):
         self.assertIn(Cy, models.storage.all().values())
         self.assertIn(St, models.storage.all().values())
         self.assertIn("Place." + Pl.id, models.storage.all().keys())
-        
 
     def test_new_with_args(self):
         with self.assertRaises(TypeError):
@@ -124,7 +123,6 @@ class TestFileStorage_methods(unittest.TestCase):
             self.assertIn("Review." + Rv.id, save_text)
             self.assertIn("State." + St.id, save_text)
             self.assertIn("Amenity." + Am.id, save_text)
-            
 
     def test_save_with_arg(self):
         with self.assertRaises(TypeError):
@@ -138,7 +136,7 @@ class TestFileStorage_methods(unittest.TestCase):
         Cy = City()
         Am = Amenity()
         Rv = Review()
-       
+
         models.storage.new(Am)
         models.storage.new(Rv)
         models.storage.new(Bm)
@@ -148,7 +146,7 @@ class TestFileStorage_methods(unittest.TestCase):
         models.storage.save()
         models.storage.new(Cy)
         models.storage.reload()
-        
+
         objs = FileStorage._FileStorage__objects
         self.assertIn("BaseModel." + Bm.id, objs)
         self.assertIn("User." + Us.id, objs)

@@ -12,6 +12,7 @@ from models.Review import Review
 from models.State import State
 from models.City import City
 
+
 def parse(arg):
     curly_braces = re.search(r"\{(.*?)\}", arg)
     brackets = re.search(r"\[(.*?)\]", arg)
@@ -43,8 +44,7 @@ class HBNBCommand(cmd.Cmd):
         "Amenity",
         "Review",
         "State"
-        
-    }
+        }
 
     def emptyline(self):
         """Do nothing upon receiving an empty line"""
@@ -194,6 +194,7 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     obj.__dict__[c] = l
         storage.save()
+
 
 if __name__ == "__main__":
     HBNBCommand().cmdloop()
